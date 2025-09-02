@@ -19,10 +19,8 @@ pipeline {
                         mkdir -p ${DEPLOY_PATH}
                     '
 
-                    # Copiar archivos del proyecto
-                    rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" ./ ${DEPLOY_USER}@${DEPLOY_SERVER}:${DEPLOY_PATH}/
+                    scp -o StrictHostKeyChecking=no -r ./ ${DEPLOY_USER}@${DEPLOY_SERVER}:${DEPLOY_PATH}/
 
-                    # Ejecutar docker-compose en servidor remoto
                     ssh -o StrictHostKeyChecking=no ${DEPLOY_USER}@${DEPLOY_SERVER} '
                         cd ${DEPLOY_PATH} && \
                         docker compose down && \

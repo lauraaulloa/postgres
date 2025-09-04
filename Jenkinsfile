@@ -4,7 +4,7 @@ pipeline {
     environment {
         DEPLOY_SERVER = "172.16.12.195"
         DEPLOY_USER = "devops"          // Ajusta según tu servidor destino
-        DEPLOY_PATH = "/sapal/dockerVol/app-node-postgres"
+        DEPLOY_PATH = "/sapal/dockerVol/app-node-postgres-laura"
         CREDENTIALS_ID = "srv195-ssh"  // ID de credencial SSH configurada en Jenkins
     }
 

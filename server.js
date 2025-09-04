@@ -2,15 +2,14 @@ const express = require("express");
 const { Client } = require("pg");
 
 const app = express();
-const port = 3001;
+const port = 3000;
 
 async function connectWithRetry() {
   const client = new Client({
     host: process.env.DB_HOST || "localhost",
     user: process.env.DB_USER || "postgres",
     password: process.env.DB_PASSWORD || "",
-    database: process.env.DB_NAME || "postgres",
-    port: 5433
+    database: process.env.DB_NAME || "postgres"    
   });
 
   try {
